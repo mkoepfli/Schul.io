@@ -28,11 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:text="Prüfungserinnerung erstellen?"
-        app:layout_constraintBottom_toTopOf="@+id/addSubject"
+        app:layout_constraintBottom_toTopOf="@+id/createNotification"
         tools:layout_editor_absoluteX="-16dp" />
 
     <Button
-        android:id="@+id/addSubject"
+        android:id="@+id/createNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
