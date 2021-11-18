@@ -16,9 +16,15 @@ public class singleSubject extends AppCompatActivity {
 
         Intent singleSubject = getIntent(); // gets the previously created intent
         String getSubjectName = singleSubject.getStringExtra("subjectName");
-
         TextView subjectName = findViewById(R.id.subjectName);
         subjectName.setText(getSubjectName);
+
+        TextView addMark = findViewById(R.id.addMark);
+
+        addMark.setOnClickListener(v -> {
+            Intent resultIntent = new Intent(this, CreateNotification.class);
+            startActivity(resultIntent);
+        });
 
         getNotesFromSubject();
 

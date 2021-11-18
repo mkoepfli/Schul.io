@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<SubjectModal> subjectModalArrayList;
     private DBHandler dbHandler;
-    private SubjectRVAdapter subjectRVAdapter;
-    private RecyclerView subjectRV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
         for( int i = 0; i < subjectModalArrayList.size(); i++ )
         {
-
             SubjectModal modal = subjectModalArrayList.get(i);
             TextView subject = new TextView(this);
             subject.setText(modal.getSubjectName());

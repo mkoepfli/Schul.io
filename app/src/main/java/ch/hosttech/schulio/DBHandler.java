@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -19,12 +20,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // below variable is for our table name.
     private static final String TABLE_NAME = "allSubjects";
+    private static final String TABLE_NAME_MARK = "allMarks";
 
     // below variable is for our id column.
     private static final String ID_COL = "id";
 
     // below variable is for our course name column
     private static final String NAME_COL = "name";
+    private static final String NAME_COL_MARK = "testName";
+
+    private static final String MARK_COL_MARK = "id";
 
     // creating a constructor for our database handler.
     public DBHandler(Context context) {
@@ -41,6 +46,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL + " TEXT)";
+
 
         // at last we are calling a exec sql 
         // method to execute above sql query
