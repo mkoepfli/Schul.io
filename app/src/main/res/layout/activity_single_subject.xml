@@ -3,16 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".singleSubject">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/subjectName"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#FFEB3B"
         android:gravity="center_horizontal|center_vertical"
-        android:text="Fächer" />
+        android:text="" />
 
+    <TextView
+        android:id="@+id/addMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="380dp"
+        android:layout_marginTop="-5dp"
+        android:text="+"
+        android:textAlignment="textEnd"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/ll_example"
@@ -26,22 +39,5 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/createNotification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="Prüfungserinnerung erstellen?"
-        app:layout_constraintBottom_toTopOf="@+id/addSubject"
-        tools:layout_editor_absoluteX="-16dp" />
 
-    <Button
-        android:id="@+id/addSubject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:background="@android:color/darker_gray"
-        android:text="Fach Hinzufügen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

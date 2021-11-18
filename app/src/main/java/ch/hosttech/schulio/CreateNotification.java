@@ -3,19 +3,13 @@ package ch.hosttech.schulio;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-
-import java.util.Calendar;
 
 public class CreateNotification extends AppCompatActivity {
     private static final String CHANNEL_ID = "defaultChannel";
@@ -31,7 +25,7 @@ public class CreateNotification extends AppCompatActivity {
         EditText subjectName = findViewById(R.id.subjectName);
         EditText testName = findViewById(R.id.testName);
 
-        Button button = findViewById(R.id.createNotification);
+        Button button = findViewById(R.id.addSubject);
         button.setOnClickListener(v -> sendNotification(subjectName.getText().toString(), testName.getText().toString()));
 
         this.notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);

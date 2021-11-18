@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/createNotification"
+        android:id="@+id/addSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

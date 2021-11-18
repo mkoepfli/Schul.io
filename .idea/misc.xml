@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout-land/activity_add_subject.xml" value="0.17372134038800705" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout-land/activity_create_notification.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout-land/activity_main.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout/activity_add_subject.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout/activity_create_notification.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/markpf/AndroidStudioProjects/Schulio/app/src/main/res/layout/activity_single_subject.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
