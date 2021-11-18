@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/textView"
@@ -16,28 +17,27 @@
     <LinearLayout
         android:id="@+id/ll_example"
         android:layout_width="match_parent"
-        android:layout_height="525dp"
+        android:layout_height="230dp"
         android:layout_marginTop="50dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/createNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="29dp"
         android:text="Prüfungserinnerung erstellen?"
         app:layout_constraintBottom_toTopOf="@+id/addSubject"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/addSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/darker_gray"
+        android:background="#FFFFFF"
         android:text="Fach Hinzufügen"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
