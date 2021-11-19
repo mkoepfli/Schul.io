@@ -49,7 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@android:color/darker_gray"
+        android:backgroundTint="#647687"
         android:text="Fach Hinzufügen"
+        app:backgroundTint="#647687"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="16dp" />
 

@@ -74,8 +74,10 @@ public class addMark extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
+        ImageView imageView = findViewById(R.id.imageView);
         if (requestCode == 100){
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(bitmap);
         }
     }
 }

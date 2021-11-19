@@ -139,6 +139,13 @@ public class singleSubject extends AppCompatActivity {
 
             mark.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
+            mark.setOnClickListener(v -> {
+                Intent singleSubject = new Intent(this, singleSubject.class);
+                singleSubject.putExtra("subjectName", subjectName);
+                singleSubject.putExtra("testName", subjectName);
+                singleSubject.putExtra("mark", subjectName);
+                startActivity(singleSubject);
+            });
 
             ((LinearLayout) linearLayout).addView(mark);
         }
@@ -146,11 +153,11 @@ public class singleSubject extends AppCompatActivity {
 
     private int getBackroundColor(float mark) {
         if (mark > 5){
-            return Color.parseColor("#AFE1AF");
+            return Color.parseColor("#D5E8D4");
         } else if (mark > 4) {
-            return Color.parseColor("#FDDA0D");
+            return Color.parseColor("#FFF2CC");
         } else {
-            return Color.parseColor("#FF0000");
+            return Color.parseColor("#F8CECC");
         }
     }
 }

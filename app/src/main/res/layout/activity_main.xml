@@ -31,7 +31,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
+        android:backgroundTint="#BAC8D3"
         android:text="Prüfungserinnerung erstellen?"
+        app:backgroundTint="#BAC8D3"
         app:layout_constraintBottom_toTopOf="@+id/average"
         tools:layout_editor_absoluteX="-16dp" />
 
@@ -40,8 +42,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"
-        android:background="@android:color/darker_gray"
+        android:background="@color/purple_700"
+        android:backgroundTint="#647687"
         android:text="Fach Hinzufügen"
+        app:backgroundTint="#647687"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -101,10 +101,11 @@ public class MainActivity extends AppCompatActivity {
             TextView subject = new TextView(this);
             subject.setText(modal.getSubjectName());
             subject.setId(modal.getId());
+
             subject.setTextColor(R.color.black);
             subject.setPadding(25, 0 ,0 ,0);
             subject.setGravity(Gravity.CENTER_VERTICAL);
-            subject.setBackgroundColor(Color.parseColor("#FFFFC107"));
+            subject.setBackgroundColor(Color.parseColor("#FAD7AC"));
             subject.setHeight(130);
 
             subject.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
