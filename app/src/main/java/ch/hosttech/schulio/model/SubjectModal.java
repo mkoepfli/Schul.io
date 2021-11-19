@@ -2,8 +2,6 @@ package ch.hosttech.schulio.model;
 
 public class SubjectModal {
 
-    // variables for our coursename,
-    // description, tracks and duration, id.
     private String subjectName;
     private int id;
 

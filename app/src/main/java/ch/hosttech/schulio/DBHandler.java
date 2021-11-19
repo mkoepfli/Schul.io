@@ -23,7 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
 
     // below variable is for our table name.
-    private static final String TABLE_NAME = "allSubjects";
+    private static final String TABLE_NAME_SUBJECT = "allSubjects";
     private static final String TABLE_NAME_MARK = "allMarks";
 
     // below variable is for our id column.
@@ -49,7 +49,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // setting our column names
         // along with their data types.
 
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " ("
+        db.execSQL("CREATE TABLE " + TABLE_NAME_SUBJECT + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL + " TEXT)");
         db.execSQL("CREATE TABLE " + TABLE_NAME_MARK + " ("
@@ -77,7 +77,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // after adding all values we are passing
         // content values to our table.
-        db.insert(TABLE_NAME, null, values);
+        db.insert(TABLE_NAME_SUBJECT, null, values);
 
         // at last we are closing our
         // database after adding database.
@@ -100,51 +100,47 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public ArrayList<SubjectModal> readSubjects() {
-        // on below line we are creating a
-        // database for reading our database.
+        // creating database for reading database.
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // on below line we are creating a cursor with query to read data from database.
-        Cursor cursorSubject = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        // creating a cursor with query to read data from database.
+        Cursor cursorSubject = db.rawQuery("SELECT * FROM " + TABLE_NAME_SUBJECT, null);
 
-        // on below line we are creating a new array list.
+        // creating a new array list.
         ArrayList<SubjectModal> subjectModalArrayList = new ArrayList<>();
 
-        // moving our cursor to first position.
+        // moving cursor to first position.
         if (cursorSubject.moveToFirst()) {
             do {
-                // on below line we are adding the data from cursor to our array list.
+                // adding the data from cursor to array list.
                 subjectModalArrayList.add(new SubjectModal(cursorSubject.getString(1)));
             } while (cursorSubject.moveToNext());
-            // moving our cursor to next.
+            // moving cursor to next.
         }
-        // at last closing our cursor
-        // and returning our array list.
+        // closing cursor and returning array list.
         cursorSubject.close();
         return subjectModalArrayList;
     }
 
     public ArrayList<MarkModal> readMarks(String subjectname) {
-        // on below line we are creating a
-        // database for reading our database.
+        // creating database for reading database.
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // on below line we are creating a cursor with query to read data from database.
+        // creating a cursor with query to read data from database.
         Cursor cursorMark = db.rawQuery("SELECT * FROM " + TABLE_NAME_MARK + " WHERE TRIM(subject) = '"+subjectname.trim()+"'", null);
 
-        // on below line we are creating a new array list.
+        // creating a new array list.
         ArrayList<MarkModal> markModalArrayList = new ArrayList<>();
 
-        // moving our cursor to first position.
+        // moving cursor to first position.
         if (cursorMark.moveToFirst()) {
             do {
-                // on below line we are adding the data from cursor to our array list.
+                // adding the data from cursor to array list.
                 markModalArrayList.add(new MarkModal(cursorMark.getString(1), cursorMark.getString(2), cursorMark.getFloat(3)));
             } while (cursorMark.moveToNext());
-            // moving our cursor to next.
+            // moving cursor to next.
         }
-        // at last closing our cursor
-        // and returning our array list.
+        // closing cursor and returning array list.
         cursorMark.close();
         return markModalArrayList;
     }
@@ -152,7 +148,8 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // this method is called to check if the table exists already.
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_SUBJECT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_MARK);
         onCreate(db);
     }
 }

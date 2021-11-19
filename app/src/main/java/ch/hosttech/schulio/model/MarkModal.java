@@ -2,8 +2,6 @@ package ch.hosttech.schulio.model;
 
 public class MarkModal {
 
-    // variables for our coursename,
-    // description, tracks and duration, id.
     private String subject;
     private float mark;
     private String testName;

@@ -34,9 +34,10 @@ public class addSubject extends AppCompatActivity {
             }
 
             // on below line we are calling a method to add new
-            // course to sqlite data and pass all our values to it.
+            // subject to sqlite data and pass all our values to it.
             dbHandler.addNewSubject(subName);
 
+            // redirect to MainActivity
             Intent singleSubject = new Intent(this, MainActivity.class);
             startActivity(singleSubject);
         });

@@ -42,7 +42,6 @@ public class addMark extends AppCompatActivity {
             String testName = getTestName.getText().toString();
             String testMarkString = getTestMark.getText().toString();
             float testMark = Float.parseFloat(testMarkString);
-
             // validating if the text fields are empty or not.
             if (testName.isEmpty()) {
                 Toast.makeText(addMark.this, "Bitte Geben Sie den Prüfungsnamen ein..", Toast.LENGTH_SHORT).show();
@@ -50,9 +49,10 @@ public class addMark extends AppCompatActivity {
             }
 
             // on below line we are calling a method to add new
-            // course to sqlite data and pass all our values to it.
+            // mark to sqlite data and pass all our values to it.
             dbHandler.addNewMark(subjectName, testName, testMark);
 
+            // redirect to singleSubject
             Intent singSubject = new Intent(this, singleSubject.class);
             singSubject.putExtra("subjectName", subjectName);
             startActivity(singSubject);

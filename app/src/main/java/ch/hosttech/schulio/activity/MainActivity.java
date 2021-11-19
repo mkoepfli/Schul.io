@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
         View linearLayout =  findViewById(R.id.ll_example);
 
+        // foreach subjectModal it should create a new Textview
+        // under linearLayout
         for( int i = 0; i < subjectModalArrayList.size(); i++ )
         {
             SubjectModal modal = subjectModalArrayList.get(i);
