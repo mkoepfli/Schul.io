@@ -1,4 +1,4 @@
-package ch.hosttech.schulio;
+package ch.hosttech.schulio.model;
 
 public class SubjectModal {
 

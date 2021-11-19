@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ch.hosttech.schulio">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -12,25 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Schulio">
+        <activity
+            android:name=".activity.singleMark"
+            android:exported="false" />
+
         <service
-            android:name=".AverageService"
+            android:name=".service.AverageService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
-            android:name=".addMark"
+            android:name=".activity.addMark"
             android:exported="false" />
         <activity
-            android:name=".addSubject"
+            android:name=".activity.addSubject"
             android:exported="false" />
         <activity
-            android:name=".singleSubject"
+            android:name=".activity.singleSubject"
             android:exported="false" />
         <activity
-            android:name=".CreateNotification"
+            android:name=".activity.CreateNotification"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

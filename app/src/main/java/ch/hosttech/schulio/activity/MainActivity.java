@@ -1,4 +1,4 @@
-package ch.hosttech.schulio;
+package ch.hosttech.schulio.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +18,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import ch.hosttech.schulio.DBHandler;
+import ch.hosttech.schulio.R;
+import ch.hosttech.schulio.model.SubjectModal;
 
 public class MainActivity extends AppCompatActivity {
 

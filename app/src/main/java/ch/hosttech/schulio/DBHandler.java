@@ -9,6 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import ch.hosttech.schulio.model.MarkModal;
+import ch.hosttech.schulio.model.SubjectModal;
+
+
 public class DBHandler extends SQLiteOpenHelper {
 
     // creating a constant variables for our database.

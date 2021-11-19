@@ -1,4 +1,4 @@
-package ch.hosttech.schulio;
+package ch.hosttech.schulio.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -10,6 +10,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import ch.hosttech.schulio.R;
 
 public class CreateNotification extends AppCompatActivity {
     private static final String CHANNEL_ID = "defaultChannel";

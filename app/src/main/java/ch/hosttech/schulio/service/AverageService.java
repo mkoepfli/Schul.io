@@ -1,4 +1,5 @@
-package ch.hosttech.schulio;
+package ch.hosttech.schulio.service;
+
 
 import android.app.Service;
 import android.content.Intent;

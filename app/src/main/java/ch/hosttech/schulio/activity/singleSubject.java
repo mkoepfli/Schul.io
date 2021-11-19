@@ -1,7 +1,4 @@
-package ch.hosttech.schulio;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+package ch.hosttech.schulio.activity;
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
@@ -17,7 +14,15 @@ import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
+
+import ch.hosttech.schulio.DBHandler;
+import ch.hosttech.schulio.R;
+import ch.hosttech.schulio.model.MarkModal;
+import ch.hosttech.schulio.service.AverageService;
+
 
 public class singleSubject extends AppCompatActivity {
 
@@ -44,6 +49,7 @@ public class singleSubject extends AppCompatActivity {
             startActivity(addMarkA);
         });
 
+        onStart();
         getNotesFromSubject(getSubjectName);
     }
 

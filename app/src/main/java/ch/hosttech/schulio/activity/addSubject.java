@@ -1,4 +1,4 @@
-package ch.hosttech.schulio;
+package ch.hosttech.schulio.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import ch.hosttech.schulio.DBHandler;
+import ch.hosttech.schulio.R;
 
 public class addSubject extends AppCompatActivity {
 
