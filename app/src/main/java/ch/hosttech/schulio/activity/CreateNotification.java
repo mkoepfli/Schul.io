@@ -2,6 +2,7 @@ package ch.hosttech.schulio.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -39,7 +40,8 @@ public class CreateNotification extends AppCompatActivity {
 
     private void sendNotification(String subjectName, String testName) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.ic_media_play)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setColor(ContextCompat.getColor(this, R.color.white))
                 .setContentTitle("Schul.io Testerinnerung!")
                 .setContentText(subjectName + " Prüfung: " + testName)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);

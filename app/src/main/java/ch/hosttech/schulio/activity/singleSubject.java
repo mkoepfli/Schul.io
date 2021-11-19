@@ -42,11 +42,17 @@ public class singleSubject extends AppCompatActivity {
         subjectName.setText(getSubjectName);
 
         TextView addMark = findViewById(R.id.addMark);
+        TextView goBack = findViewById(R.id.goBack);
 
         addMark.setOnClickListener(v -> {
             Intent addMarkA = new Intent(this, addMark.class);
             addMarkA.putExtra("subjectName", getSubjectName);
             startActivity(addMarkA);
+        });
+
+        goBack.setOnClickListener(v -> {
+            Intent main = new Intent(this, MainActivity.class);
+            startActivity(main);
         });
 
         onStart();
