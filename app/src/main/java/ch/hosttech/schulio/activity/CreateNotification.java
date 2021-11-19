@@ -7,10 +7,12 @@ import androidx.core.content.ContextCompat;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import ch.hosttech.schulio.R;
 
@@ -27,9 +29,15 @@ public class CreateNotification extends AppCompatActivity {
 
         EditText subjectName = findViewById(R.id.subjectName);
         EditText testName = findViewById(R.id.testName);
+        TextView goBack = findViewById(R.id.goBack);
 
         Button button = findViewById(R.id.average);
         button.setOnClickListener(v -> sendNotification(subjectName.getText().toString(), testName.getText().toString()));
+
+        goBack.setOnClickListener(v -> {
+            Intent main = new Intent(this, MainActivity.class);
+            startActivity(main);
+        });
 
         this.notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

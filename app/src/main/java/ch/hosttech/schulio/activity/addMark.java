@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ch.hosttech.schulio.DBHandler;
@@ -30,6 +31,8 @@ public class addMark extends AppCompatActivity {
         EditText getTestMark = findViewById(R.id.testMark);
         Button photoButton = (Button) this.findViewById(R.id.doPhoto);
         ImageView imageView = findViewById(R.id.imageView);
+
+        TextView goBack = findViewById(R.id.goBack);
 
         DBHandler dbHandler = new DBHandler(addMark.this);
 
@@ -56,6 +59,12 @@ public class addMark extends AppCompatActivity {
             Intent singSubject = new Intent(this, singleSubject.class);
             singSubject.putExtra("subjectName", subjectName);
             startActivity(singSubject);
+        });
+
+        goBack.setOnClickListener(v -> {
+            Intent addMarkView = new Intent(this, singleSubject.class);
+            addMarkView.putExtra("subjectName", subjectName);
+            startActivity(addMarkView);
         });
 
         if (ContextCompat.checkSelfPermission(addMark.this, Manifest.permission.CAMERA)

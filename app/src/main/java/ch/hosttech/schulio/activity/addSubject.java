@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ch.hosttech.schulio.DBHandler;
@@ -20,6 +21,7 @@ public class addSubject extends AppCompatActivity {
 
         EditText subjectName = findViewById(R.id.subjectName);
         Button addSubject = findViewById(R.id.average);
+        TextView goBack = findViewById(R.id.goBack);
 
         DBHandler dbHandler = new DBHandler(addSubject.this);
 
@@ -40,6 +42,11 @@ public class addSubject extends AppCompatActivity {
             // redirect to MainActivity
             Intent singleSubject = new Intent(this, MainActivity.class);
             startActivity(singleSubject);
+        });
+
+        goBack.setOnClickListener(v -> {
+            Intent main = new Intent(this, MainActivity.class);
+            startActivity(main);
         });
     }
 }
