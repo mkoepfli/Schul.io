@@ -5,7 +5,7 @@
 Jeder kennt das Problem, wenn man seine Noten anschauen will aber diese nirgends gespeichert haben. Mit Schul.io kann man ganz einfach seine Noten einschreiben und ein Bild vom Test Hochladen. Somit kann man auch später noch die Prüfungen betrachten.
 Ein Zusätzlichen Problem, welches auch viele kennen ist, dass man seine Prüfungstermine vergisst. Mit Schul.io kann man Prüfungserinnerungen erstellen und bestimmen, wann man eine Notification als Erinnerung erhalten soll.
 
-##Beschreibung
+## Beschreibung
 Die Schüler/innen können Ihre Noten mit Bildern von Ihren Tests eintragen und erhalten Benachrichtigungen, wenn Sie einen Test haben, von welchem Sie zuvor eine Erinnerung erstellt haben.
 
 ## Features
