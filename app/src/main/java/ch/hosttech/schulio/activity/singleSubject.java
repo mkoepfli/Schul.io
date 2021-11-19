@@ -5,6 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Gravity;
@@ -30,6 +34,11 @@ public class singleSubject extends AppCompatActivity {
     private DBHandler dbHandler;
     private AverageService averageService;
     private boolean isAverageServiceBound = false;
+    private SensorManager sensorManager;
+    private Sensor lightSensor;
+    private SensorEventListener lightEventListener;
+    private View root;
+    private float maxValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +66,34 @@ public class singleSubject extends AppCompatActivity {
 
         onStart();
         getNotesFromSubject(getSubjectName);
+
+        // crate light sensor
+        root = findViewById(R.id.all);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        if (lightSensor == null) {
+            finish();
+        }
+
+        // max value for light sensor
+        maxValue = lightSensor.getMaximumRange();
+
+        lightEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                float value = sensorEvent.values[0];
+
+                // between 0 and 255
+                int newValue = (int) (255f * value / maxValue);
+                root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int i) {
+
+            }
+        };
     }
 
     @Override
@@ -140,7 +177,7 @@ public class singleSubject extends AppCompatActivity {
             mark.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
             mark.setOnClickListener(v -> {
-                Intent singleSubject = new Intent(this, singleSubject.class);
+                Intent singleSubject = new Intent(this, singleMark.class);
                 singleSubject.putExtra("subjectName", subjectName);
                 singleSubject.putExtra("testName", subjectName);
                 singleSubject.putExtra("mark", subjectName);
@@ -159,5 +196,17 @@ public class singleSubject extends AppCompatActivity {
         } else {
             return Color.parseColor("#F8CECC");
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(lightEventListener, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(lightEventListener);
     }
 }
