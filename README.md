@@ -2,7 +2,7 @@
 <img width="200" alt="portfolio_view" src="https://github.com/mkoepfli/Schul.io/blob/main/app/src/main/ic_launcher-playstore.png">
 
 ## Motivation
-Jeder kennt das Problem, wenn man seine Noten anschauen will aber diese nirgends gespeichert haben. Mit Schul.io kann man ganz einfach seine Noten einschreiben und ein Bild vom Test Hochladen. Somit kann man auch später noch die Prüfungen betrachten.
+Jeder kennt das Problem, wenn man seine Noten anschauen will aber diese nirgends gespeichert hat. Mit Schul.io kann man ganz einfach seine Noten einschreiben und ein Bild vom Test Hochladen. Somit kann man auch später noch die Prüfungen betrachten.
 Ein Zusätzlichen Problem, welches auch viele kennen ist, dass man seine Prüfungstermine vergisst. Mit Schul.io kann man Prüfungserinnerungen erstellen und bestimmen, wann man eine Notification als Erinnerung erhalten soll.
 
 ## Beschreibung
