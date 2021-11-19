@@ -1,16 +1,14 @@
 package ch.hosttech.schulio;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.CircularArray;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -25,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<SubjectModal> subjectModalArrayList;
     private DBHandler dbHandler;
-
+    private SensorManager sensorManager;
+    private Sensor lightSensor;
+    private SensorEventListener lightEventListener;
+    private View root;
+    private float maxValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button createNotification = findViewById(R.id.createNotification);
-        Button addSubject = findViewById(R.id.addSubject);
+        Button addSubject = findViewById(R.id.average);
 
         createNotification.setOnClickListener(v -> {
             Intent resultIntent = new Intent(this, CreateNotification.class);
@@ -46,6 +48,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
         loadAllSubjects();
+
+        root = findViewById(R.id.ll_example);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        if (lightSensor == null) {
+            finish();
+        }
+
+        // max value for light sensor
+        maxValue = lightSensor.getMaximumRange();
+
+        lightEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                float value = sensorEvent.values[0];
+
+                // between 0 and 255
+                int newValue = (int) (255f * value / maxValue);
+                root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int i) {
+
+            }
+        };
     }
 
     @SuppressLint("ResourceAsColor")
@@ -57,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
         // getting our course array
         // list from db handler class.
         subjectModalArrayList = dbHandler.readSubjects();
-
-        int size = subjectModalArrayList.size();
 
         View linearLayout =  findViewById(R.id.ll_example);
 
@@ -76,14 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
             subject.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-            ShapeDrawable shape = new ShapeDrawable(new RectShape());
-
-            shape.getPaint().setColor(Color.BLACK);
-            shape.getPaint().setStyle(Paint.Style.STROKE);
-            shape.getPaint().setStrokeWidth(3);
-
-            subject.setBackground(shape);
-
             subject.setOnClickListener(v -> {
                 Intent singleSubject = new Intent(this, singleSubject.class);
                 singleSubject.putExtra("subjectName", modal.getSubjectName());
@@ -92,7 +111,17 @@ public class MainActivity extends AppCompatActivity {
 
             ((LinearLayout) linearLayout).addView(subject);
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(lightEventListener, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(lightEventListener);
     }
 }
