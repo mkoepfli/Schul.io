@@ -40,8 +40,8 @@ public class DBHandler extends SQLiteOpenHelper {
     // below method is for creating a database by running a sqlite query
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // on below line we are creating
-        // an sqlite query and we are
+        // on below line we are creating 
+        // an sqlite query and we are 
         // setting our column names
         // along with their data types.
 
@@ -58,16 +58,16 @@ public class DBHandler extends SQLiteOpenHelper {
     // this method is use to add new course to our sqlite database.
     public void addNewSubject(String subjectName) {
 
-        // on below line we are creating a variable for
-        // our sqlite database and calling writable method
+        // on below line we are creating a variable for 
+        // our sqlite database and calling writable method 
         // as we are writing data in our database.
         SQLiteDatabase db = this.getWritableDatabase();
 
-        // on below line we are creating a
+        // on below line we are creating a 
         // variable for content values.
         ContentValues values = new ContentValues();
 
-        // on below line we are passing all values
+        // on below line we are passing all values 
         // along with its key and value pair.
         values.put(NAME_COL, subjectName);
 

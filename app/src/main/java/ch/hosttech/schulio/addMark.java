@@ -56,7 +56,7 @@ public class addMark extends AppCompatActivity {
         });
 
         if (ContextCompat.checkSelfPermission(addMark.this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED){
+        != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(addMark.this, new String[]{
                     Manifest.permission.CAMERA
             }, 100);

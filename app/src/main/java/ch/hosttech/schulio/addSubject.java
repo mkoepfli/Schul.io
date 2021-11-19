@@ -16,7 +16,7 @@ public class addSubject extends AppCompatActivity {
         setContentView(R.layout.activity_add_subject);
 
         EditText subjectName = findViewById(R.id.subjectName);
-        Button addSubject = findViewById(R.id.addSubject);
+        Button addSubject = findViewById(R.id.average);
 
         DBHandler dbHandler = new DBHandler(addSubject.this);
 

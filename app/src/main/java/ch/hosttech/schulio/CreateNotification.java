@@ -25,7 +25,7 @@ public class CreateNotification extends AppCompatActivity {
         EditText subjectName = findViewById(R.id.subjectName);
         EditText testName = findViewById(R.id.testName);
 
-        Button button = findViewById(R.id.addSubject);
+        Button button = findViewById(R.id.average);
         button.setOnClickListener(v -> sendNotification(subjectName.getText().toString(), testName.getText().toString()));
 
         this.notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
