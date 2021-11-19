@@ -157,8 +157,6 @@ public class singleSubject extends AppCompatActivity {
         // list from db handler class.
         markModalArrayList = dbHandler.readMarks(subjectName);
 
-        int size = markModalArrayList.size();
-
         View linearLayout =  findViewById(R.id.ll_example);
 
         for( int i = 0; i < markModalArrayList.size(); i++ )
@@ -175,14 +173,6 @@ public class singleSubject extends AppCompatActivity {
             mark.setHeight(130);
 
             mark.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-
-            mark.setOnClickListener(v -> {
-                Intent singleSubject = new Intent(this, singleMark.class);
-                singleSubject.putExtra("subjectName", subjectName);
-                singleSubject.putExtra("testName", subjectName);
-                singleSubject.putExtra("mark", subjectName);
-                startActivity(singleSubject);
-            });
 
             ((LinearLayout) linearLayout).addView(mark);
         }
